@@ -42,9 +42,16 @@ else
 	exit 1
 fi
 
-# YOUR CODE HERE: the example implementation writes only one file
+# Please do not modify this line, for compatibility with upcoming assignments
+# ----------------------------------------------------
+# YOUR CODE BELOW: the example implementation writes only one file
 # You need to modify it to write the number of files passed as the NUMFILES parameter
+
 ./writer.sh "$WRITEDIR/$WRITESTR$i" "$WRITESTR"
+
+# ----------------------------------------------------
+# End of your code modifcations.  Please don't modify this line
+# For compatibility with upcoming assignments
 
 mkdir -p `dirname ${OUTPUTFILE}`
 

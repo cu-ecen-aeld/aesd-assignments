@@ -47,7 +47,7 @@ fi
 # YOUR CODE BELOW: the example implementation writes only one file
 # You need to modify it to write the number of files passed as the NUMFILES parameter
 
-./writer.sh "$WRITEDIR/$WRITESTR$i" "$WRITESTR"
+./writer.sh "$WRITEDIR/$WRITESTR" "$WRITESTR"
 
 # ----------------------------------------------------
 # End of your code modifcations.  Please don't modify this line

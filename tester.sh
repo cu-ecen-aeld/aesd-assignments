@@ -8,7 +8,6 @@ set -u
 NUMFILES=10
 WRITESTR=ECEN_5013_IS_AWESOME
 WRITEDIR=/tmp/ecen5013
-MATCHSTR="The number of files are ${NUMFILES} and the number of matching lines are ${NUMFILES}"
 OUTPUTFILE=assignments/assignment1/assignment1-result.txt
 
 
@@ -26,6 +25,7 @@ else
 	WRITESTR=$2
 fi
 
+MATCHSTR="The number of files are ${NUMFILES} and the number of matching lines are ${NUMFILES}"
 echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 
 

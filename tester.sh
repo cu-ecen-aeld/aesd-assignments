@@ -44,13 +44,13 @@ fi
 
 # Please do not modify this line, for compatibility with upcoming assignments
 # ----------------------------------------------------
-# YOUR CODE BELOW: the example implementation writes only one file
+# YOUR CODE BELOW: the example implementation only writes one file
 # You need to modify it to write the number of files passed as the NUMFILES parameter
 
-./writer.sh "$WRITEDIR/$WRITESTR" "$WRITESTR"
+#./writer.sh "$WRITEDIR/$WRITESTR" "$WRITESTR"
 
 # ----------------------------------------------------
-# End of your code modifcations.  Please don't modify this line
+# End of your code modifications.  Please don't modify this line
 # For compatibility with upcoming assignments
 
 mkdir -p `dirname ${OUTPUTFILE}`

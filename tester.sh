@@ -1,15 +1,13 @@
 #!/bin/bash
-# Tester script for assignment 1.
+# Tester script for assignment 1 and assignment 2
 # Author: Siddhant Jajoo
 
 set -e
 set -u
 
 NUMFILES=10
-WRITESTR=ECEN_5013_IS_AWESOME
-WRITEDIR=/tmp/ecen5013
-OUTPUTFILE=assignments/assignment1/assignment1-result.txt
-
+WRITESTR=AESD_IS_AWESOME
+WRITEDIR=/tmp/aesd-data
 
 if [ $# -lt 2 ]
 then
@@ -26,8 +24,8 @@ else
 fi
 
 MATCHSTR="The number of files are ${NUMFILES} and the number of matching lines are ${NUMFILES}"
-echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 
+echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 
 rm -rf "${WRITEDIR}"
 mkdir -p "$WRITEDIR"
@@ -46,6 +44,7 @@ fi
 # ----------------------------------------------------
 # YOUR CODE BELOW: the example implementation only writes one file
 # You need to modify it to write the number of files passed as the NUMFILES parameter
+# And customize the written filename with numbers 1-10
 
 #./writer.sh "$WRITEDIR/$WRITESTR" "$WRITESTR"
 
@@ -53,17 +52,15 @@ fi
 # End of your code modifications.  Please don't modify this line
 # For compatibility with upcoming assignments
 
-mkdir -p `dirname ${OUTPUTFILE}`
-
-./finder.sh "$WRITEDIR" "$WRITESTR" > "${OUTPUTFILE}"
+# Invoke the finder shell script and save the output in OUTPUTSTRING
+OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
 
 set +e
-grep "${MATCHSTR}" ${OUTPUTFILE}
+echo ${OUTPUTSTRING} | grep "${MATCHSTR}"
 if [ $? -eq 0 ]; then
 	echo "success"
 	exit 0
 else
-	echo "failed: expected  ${MATCHSTR} in ${OUTPUTFILE} but instead found"
-	cat ${OUTPUTFILE}
+	echo "failed: expected  ${MATCHSTR} in ${OUTPUTSTRING} but instead found"
 	exit 1
 fi

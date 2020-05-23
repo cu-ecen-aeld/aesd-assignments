@@ -1,0 +1,8 @@
+image: "cuaesd/aesd-autotest"
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+
+test:
+    script:
+        - ./test.sh

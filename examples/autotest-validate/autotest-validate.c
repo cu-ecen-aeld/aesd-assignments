@@ -20,3 +20,12 @@ bool this_function_returns_false()
 {
     return false;
 }
+
+/**
+ * @return a string which contains the username you use for
+ * git submissions
+ */
+const char *my_username()
+{
+    // TODO: your code here
+}

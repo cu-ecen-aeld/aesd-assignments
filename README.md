@@ -4,7 +4,7 @@ This repo contains public starter source code, scripts, and documentation for AE
 
 ## Setting Up Git
 
-Use the instructions at [Setup Git](https://help.github.com/en/articles/set-up-git) to perform initial git setup steps. For AESD you will want to perform these steps inside your Linux virtual machine, since this is where you will be doing your development work.
+Use the instructions at [Setup Git](https://help.github.com/en/articles/set-up-git) to perform initial git setup steps. For AESD you will want to perform these steps inside your Linux host virtual or physical machine, since this is where you will be doing your development work.
 
 ## Setting up SSH keys
 
@@ -18,12 +18,8 @@ Some assignments require further setup to pull in example code or make other cha
 
 See `./test.sh` script.  The basis of the automated test implementation for this repository comes from [https://github.com/cu-ecen-5013/assignment-autotest/](https://github.com/cu-ecen-5013/assignment-autotest/)
 
-# assignment-autotest
-
 The assignment-autotest directory contains scripts useful for instructor/TA grading and code reviews.  Use
 ```
-git submodule init
-git submodule sync
-git submodule update
+git submodule init update --recursive
 ```
-to synchronize.
+to synchronize after cloning and before starting each assignment.

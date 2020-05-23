@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Tester script for assignment 1 and assignment 2
 # Author: Siddhant Jajoo
 
@@ -8,8 +8,8 @@ set -u
 NUMFILES=10
 WRITESTR=AESD_IS_AWESOME
 WRITEDIR=/tmp/aesd-data
-# TODO: Store your username in a variable USERNAME, hardcode it, do not use git --user
-USERNAME=your-github-name-here
+# obtain the username from conf/username.txt
+USERNAME=$(cat conf/username.txt)
 
 if [ $# -lt 2 ]
 then
@@ -42,17 +42,15 @@ else
 	exit 1
 fi
 
-# Please do not modify this line, for compatibility with upcoming assignments
 # ----------------------------------------------------
 # YOUR CODE BELOW: the example implementation only writes one file
 # You need to modify it to write the number of files passed as the NUMFILES parameter
-# And customize the written filename with numbers 1-10
+# And customize the written filename with numbers 1-10 as specified in the assignment
 
 #./writer.sh "$WRITEDIR/$USERNAME.txt" "$WRITESTR"
 
 # ----------------------------------------------------
-# End of your code modifications.  Please don't modify this line
-# For compatibility with upcoming assignments
+# End of your code modifications.
 
 # Invoke the finder shell script and save the output in OUTPUTSTRING
 OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")

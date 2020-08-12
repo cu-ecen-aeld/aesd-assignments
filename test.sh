@@ -3,34 +3,48 @@
 # automated testing using assignment-autotest.  It automates the
 # steps described in https://github.com/cu-ecen-5013/assignment-autotest/blob/master/README.md#running-tests
 set -e
+
 cd `dirname $0`
+test_dir=`pwd`
+echo "starting test with SKIP_BUILD=\"${SKIP_BUILD}\" and DO_VALIDATE=\"${DO_VALIDATE}\""
 if [ -f ./assignment-autotest/docker/options ]; then
     # When run using a docker container on a parent repo, support additional options
     # specifying UID/GID of user
     . ./assignment-autotest/docker/options
     parse_docker_options "$@"
 fi
-# Automate these steps from the readme:
-# Create a build subdirectory, change into it, run
-# cmake .. && make && run the assignment-autotest application
-mkdir -p build
-cd build
-cmake ..
-make
-cd ..
-./build/assignment-autotest/assignment-autotest
 
+# This part of the script always runs as the current user, even when
+# executed inside a docker container.
+# See the logic in parse_docker_options for implementation
+logfile=test.sh.log
+# See https://stackoverflow.com/a/3403786
+# Place stdout and stderr in a log file
+exec > >(tee -i -a "$logfile") 2> >(tee -i -a "$logfile" >&2)
+
+echo "Running test with user $(whoami)"
+
+set +e
 # If there's a configuration for the assignment number, use this to look for
 # additional tests
 if [ -f conf/assignment.txt ]; then
     # This is just one example of how you could find an associated assignment
     assignment=`cat conf/assignment.txt`
     if [ -f ./assignment-autotest/test/${assignment}/assignment-test.sh ]; then
-    # Optional: If you have other tests to run against the assignment
-    # add these to a script under test/${assignment}
-        ./assignment-autotest/test/${assignment}/assignment-test.sh
-        echo "Test of assignment ${assignment} complete with success"
+        echo "Executing assignment test script"
+        ./assignment-autotest/test/${assignment}/assignment-test.sh $test_dir
+        rc=$?
+        if [ $rc -eq 0 ]; then
+            echo "Test of assignment ${assignment} complete with success"
+        else
+            echo "Test of assignment ${assignment} failed with rc=${rc}"
+            exit $rc
+        fi
     else
-        echo "No assignment-test script found for ${assignment}, skipping this test"
+        echo "No assignment-test script found for ${assignment}"
+        exit 1
     fi
+else
+    echo "Missing conf/assignment.txt, no assignment to run"
+    exit 1
 fi

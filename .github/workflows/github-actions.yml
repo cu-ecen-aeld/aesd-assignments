@@ -1,0 +1,19 @@
+name: assignment-test
+on: [push]
+jobs:
+    unit-test:
+        container: cuaesd/aesd-autotest:unit-test
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+            name: Checkout submodules
+          - uses: textbook/git-checkout-submodule-action@2.1.1
+          - run: ./unit-test.sh
+    full-test:
+        container: cuaesd/aesd-autotest:assignment3
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+            name: Checkout submodules
+          - uses: textbook/git-checkout-submodule-action@2.1.1
+          - run: ./full-test.sh

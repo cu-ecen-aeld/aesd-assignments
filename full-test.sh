@@ -7,12 +7,6 @@ set -e
 cd `dirname $0`
 test_dir=`pwd`
 echo "starting test with SKIP_BUILD=\"${SKIP_BUILD}\" and DO_VALIDATE=\"${DO_VALIDATE}\""
-if [ -f ./assignment-autotest/docker/options ]; then
-    # When run using a docker container on a parent repo, support additional options
-    # specifying UID/GID of user
-    . ./assignment-autotest/docker/options
-    parse_docker_options "$@"
-fi
 
 # This part of the script always runs as the current user, even when
 # executed inside a docker container.
@@ -25,6 +19,13 @@ exec > >(tee -i -a "$logfile") 2> >(tee -i -a "$logfile" >&2)
 echo "Running test with user $(whoami)"
 
 set +e
+
+./unit-test.sh
+unit_test_rc=$?
+if [ $unit_test_rc -ne 0 ]; then
+    echo "Unit test failed"
+fi
+
 # If there's a configuration for the assignment number, use this to look for
 # additional tests
 if [ -f conf/assignment.txt ]; then
@@ -48,3 +49,4 @@ else
     echo "Missing conf/assignment.txt, no assignment to run"
     exit 1
 fi
+exit ${unit_test_rc}

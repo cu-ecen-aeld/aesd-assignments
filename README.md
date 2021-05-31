@@ -16,7 +16,7 @@ Some assignments require further setup to pull in example code or make other cha
 
 ## Testing
 
-See `./test.sh` script.  The basis of the automated test implementation for this repository comes from [https://github.com/cu-ecen-5013/assignment-autotest/](https://github.com/cu-ecen-5013/assignment-autotest/)
+See the `./full-test.sh` script.  The basis of the automated test implementation for this repository comes from [https://github.com/cu-ecen-aeld/assignment-autotest/](https://github.com/cu-ecen-aeld/assignment-autotest/)
 
 The assignment-autotest directory contains scripts useful for instructor/TA grading and code reviews.  Use
 ```

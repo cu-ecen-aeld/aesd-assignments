@@ -1,6 +1,5 @@
 # aesd-assignments
-This repo contains public starter source code, scripts, and documentation for AESD assignments for ECEN-5713 Fall 2020 University of Colorado, Boulder.
-
+This repo contains public starter source code, scripts, and documentation for Advanced Embedded Software Development (ECEN-5713) and Advanced Embedded Linux Development assignments University of Colorado, Boulder.
 
 ## Setting Up Git
 
@@ -16,10 +15,14 @@ Some assignments require further setup to pull in example code or make other cha
 
 ## Testing
 
-See the `./full-test.sh` script.  The basis of the automated test implementation for this repository comes from [https://github.com/cu-ecen-aeld/assignment-autotest/](https://github.com/cu-ecen-aeld/assignment-autotest/)
+The basis of the automated test implementation for this repository comes from [https://github.com/cu-ecen-aeld/assignment-autotest/](https://github.com/cu-ecen-aeld/assignment-autotest/)
 
-The assignment-autotest directory contains scripts useful for instructor/TA grading and code reviews.  Use
+The assignment-autotest directory contains scripts useful for automated testing  Use
 ```
 git submodule init update --recursive
 ```
-to synchronize after cloning and before starting each assignment.
+to synchronize after cloning and before starting each assignment, as discussed in the assignment instructions.
+
+As a part of the assignment instructions, you will setup your assignment repo to perform automated testing using github actions.  See [this page](https://github.com/cu-ecen-aeld/aesd-assignments/wiki/Setting-up-Github-Actions) for details.
+
+Note that the unit tests will fail on this repository, since assignments are not yet implemented.  That's your job :) 

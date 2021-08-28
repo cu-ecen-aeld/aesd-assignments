@@ -7,7 +7,7 @@ Use the instructions at [Setup Git](https://help.github.com/en/articles/set-up-g
 
 ## Setting up SSH keys
 
-This step is optional but will save you from needing to enter your password every time you interact with the git server.  See instructions in [Connecting to GitHub with SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)
+See instructions in [Setting-up-SSH-Access-To-your-Repo](https://github.com/cu-ecen-aeld/aesd-assignments/wiki/Setting-up-SSH-Access-To-your-Repo) for details.
 
 ## Specific Assignment Instructions
 

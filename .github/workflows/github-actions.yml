@@ -6,14 +6,16 @@ jobs:
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2
-            name: Checkout submodules
-          - uses: textbook/git-checkout-submodule-action@2.1.1
-          - run: ./unit-test.sh
+          - name: Checkout submodules
+            run : git submodule update --init --recursive
+          - name: Run unit test
+            run: ./unit-test.sh
     full-test:
         container: cuaesd/aesd-autotest:assignment1
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2
-            name: Checkout submodules
-          - uses: textbook/git-checkout-submodule-action@2.1.1
-          - run: ./full-test.sh
+          - name: Checkout submodules
+            run : git submodule update --init --recursive
+          - name: Run full test
+            run: ./full-test.sh

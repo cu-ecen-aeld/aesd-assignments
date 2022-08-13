@@ -2,7 +2,7 @@ name: assignment-test
 on: [push]
 jobs:
     unit-test:
-        container: cuaesd/aesd-autotest:assignment6
+        container: cuaesd/aesd-autotest:assignment7
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2
@@ -11,7 +11,7 @@ jobs:
           - name: Run unit test
             run: ./unit-test.sh
     full-test:
-        container: cuaesd/aesd-autotest:assignment6
+        container: cuaesd/aesd-autotest:assignment7
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2

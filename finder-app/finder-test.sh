@@ -7,7 +7,7 @@ set -u
 
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
-WRITEDIR=/tmp/aeld-data
+WRITEDIR=/tmp/aeld_dir/aeld-data
 username=$(cat conf/username.txt)
 
 if [ $# -lt 2 ]

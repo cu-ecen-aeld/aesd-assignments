@@ -1,5 +1,10 @@
 name: assignment-test
-on: [push]
+on: 
+    push:
+        tags-ignore:
+            - '*'
+        branches:
+            - '*'
 jobs:
     unit-test:
         container: cuaesd/aesd-autotest:unit-test

@@ -62,7 +62,7 @@ extern void aesd_circular_buffer_init(struct aesd_circular_buffer *buffer);
  * Create a for loop to iterate over each member of the circular buffer.
  * Useful when you've allocated memory for circular buffer entries and need to free it
  * @param entryptr is a struct aesd_buffer_entry* to set with the current entry
- * @param buffer is the struct aesd_buffer * describing the buffer
+ * @param buffer is the struct aesd_circular_buffer * describing the buffer
  * @param index is a uint8_t stack allocated value used by this macro for an index
  * Example usage:
  * uint8_t index;

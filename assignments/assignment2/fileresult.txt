@@ -1,0 +1,1 @@
+writer: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=5dbecdf093d245d450bbe922259abd0281ef28d9, for GNU/Linux 3.7.0, with debug_info, not stripped

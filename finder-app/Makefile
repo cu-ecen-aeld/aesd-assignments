@@ -6,4 +6,4 @@ writer: writer.o
 writer.o: writer.c
 	$(CROSS_COMPILE)$(CC) $(CFLAGS) -c $< -o $@ 
 clean:
-	rm writer.o writer
+	rm -f writer.o writer

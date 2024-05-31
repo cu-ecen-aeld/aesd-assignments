@@ -6,3 +6,5 @@ crosstool-ng
 aesd-build
 .vscode/
 test.sh.log
+Test_*_Runner.c
+build/

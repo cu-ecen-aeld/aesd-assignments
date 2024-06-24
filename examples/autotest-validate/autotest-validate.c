@@ -29,4 +29,3 @@ const char *my_username()
 {
     return "todo-please-enter-your-username-here-in-my_username";
 }
-}

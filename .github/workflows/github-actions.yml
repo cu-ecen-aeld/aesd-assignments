@@ -1,5 +1,5 @@
 name: assignment-test
-on: 
+on:
     push:
         tags-ignore:
             - '*'
@@ -7,7 +7,7 @@ on:
             - '*'
 jobs:
     unit-test:
-        container: cuaesd/aesd-autotest:assignment7
+        container: cuaesd/aesd-autotest:24-unit-test
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           - name: Run unit test
             run: ./unit-test.sh
     full-test:
-        container: cuaesd/aesd-autotest:assignment7
+        container: cuaesd/aesd-autotest:24-assignment7
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2

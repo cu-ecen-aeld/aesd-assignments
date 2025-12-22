@@ -33,7 +33,6 @@ bool do_system(const char *cmd)
 *   fork, waitpid, or execv() command, or if a non-zero return value was returned
 *   by the command issued in @param arguments with the specified arguments.
 */
-
 bool do_exec(int count, ...)
 {
     va_list args;
@@ -67,7 +66,7 @@ bool do_exec(int count, ...)
 /**
 * @param outputfile - The full path to the file to write with command output.
 *   This file will be closed at completion of the function call.
-* All other parameters, see do_exec above
+*   All other parameters, see do_exec above
 */
 bool do_exec_redirect(const char *outputfile, int count, ...)
 {

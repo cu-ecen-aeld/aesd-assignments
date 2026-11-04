@@ -1,4 +1,5 @@
 #!/bin/sh
+#file written by Kapil Singh
 
 if [ $# -lt 2 ]; then
     echo "Error: Parameters not specified. Usage: $0 <writefile> <writestr>"
